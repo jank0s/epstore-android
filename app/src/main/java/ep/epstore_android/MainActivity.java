@@ -33,6 +33,14 @@ public class MainActivity extends AppCompatActivity implements Callback<List<Pro
         setContentView(R.layout.activity_main);
 
         list = (ListView) findViewById(R.id.items);
+        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                final Intent intent = new Intent(MainActivity.this, ProductDetailActivity.class);
+                intent.putExtra("ep.epstore.id", products.get(i).id);
+                startActivity(intent);
+            }
+        });
 
         adapter = new ProductAdapter(this, products);
         list.setAdapter(adapter);

@@ -12,6 +12,7 @@ import java.util.Locale;
 public class Product implements Serializable {
     public int id;
     public String name;
+    public String description;
     public double price;
     public int rating;
     public String uri;
