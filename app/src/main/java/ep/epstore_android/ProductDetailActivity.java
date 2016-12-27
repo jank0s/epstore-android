@@ -14,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.IOException;
+import java.util.Locale;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -24,6 +25,8 @@ public class ProductDetailActivity extends AppCompatActivity implements Callback
 
     private Product product;
     private TextView tvProductDetail;
+    private TextView tvProductRating;
+    private TextView tvProductPrice;
     private CollapsingToolbarLayout toolbarLayout;
 
     @Override
@@ -36,6 +39,9 @@ public class ProductDetailActivity extends AppCompatActivity implements Callback
         toolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.toolbar_layout);
 
         tvProductDetail = (TextView) findViewById(R.id.tv_product_detail);
+        tvProductRating = (TextView) findViewById(R.id.tv_product_rating);
+        tvProductPrice = (TextView) findViewById(R.id.tv_product_price);
+
 
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -55,6 +61,8 @@ public class ProductDetailActivity extends AppCompatActivity implements Callback
         if (response.isSuccessful()) {
             tvProductDetail.setText(product.description);
             toolbarLayout.setTitle(product.name);
+            tvProductRating.setText("Ocena: "+product.rating);
+            tvProductPrice.setText(String.format(Locale.ENGLISH, "%.2f €", product.price));
         } else {
             String errorMessage;
             try {

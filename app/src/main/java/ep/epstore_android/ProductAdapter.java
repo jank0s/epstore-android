@@ -35,7 +35,7 @@ public class ProductAdapter extends ArrayAdapter<Product>{
 
         tvName.setText(product.name);
         tvRating.setText("Ocena: "+ product.rating);
-        tvPrice.setText(String.format(Locale.ENGLISH, "%.2f EUR", product.price));
+        tvPrice.setText(String.format(Locale.ENGLISH, "%.2f €", product.price));
 
         return convertView;
     }
