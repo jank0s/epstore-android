@@ -10,7 +10,7 @@ import retrofit2.http.Path;
 
 public class StoreService {
     interface RestApi {
-        String URL = "http://192.168.10.133/api/";
+        String URL = "http://epstore.tk/api/";
 
         @GET("products")
         Call<List<Product>> getAllProducts();
